@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Gratis Ongkir Seluruh Indonesia 🚚"
+        android:text="Gratis Ongkir   Seluruh Indonesia 🚚"
         android:textColor="#EE4D2D"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
