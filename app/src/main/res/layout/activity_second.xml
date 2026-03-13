@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF5F2"
-    tools:context=".pertemuan_2.SecondActivity">
+    tools:context=".Pertemuan2.SecondActivity">
 
     <View
         android:id="@+id/viewDecor"
@@ -37,7 +37,7 @@
         android:id="@+id/textNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spill namamu, dapetin vouchernya! ✨"
+        android:text="Spil namamu, dapetin voucher dan gratis ongkir! ✨"
         android:textColor="#555555"
         android:textSize="16sp"
         android:textStyle="italic"
