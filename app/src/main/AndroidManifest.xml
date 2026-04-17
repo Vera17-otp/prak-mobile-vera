@@ -11,24 +11,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PercobaanP1">
+
+        <!-- FourthActivity -->
+        <activity
+            android:name=".pertemuan4.FourthActivity"
+            android:exported="false" />
+
+        <!-- ThirdResultActivity -->
         <activity
             android:name=".Pertemuan3.ThirdResultActivity"
             android:exported="false" />
-        <activity
-            android:name=".Pertemuan3.ThirdActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Pertemuan2.SecondActivity"
-            android:exported="false"></activity>
+        <!-- MainActivity (HARUS ada intent-filter di sini) -->
         <activity
             android:name=".MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- SecondActivity -->
+        <activity
+            android:name=".Pertemuan2.SecondActivity"
             android:exported="false" />
+
+        <!-- ThirdActivity -->
+        <activity
+            android:name=".Pertemuan3.ThirdActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
