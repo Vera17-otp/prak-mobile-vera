@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,20 +13,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PercobaanP1"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
 
         <activity
-            android:name=".pertemuan_5.WebViewActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".pertemuan_5.FifthActivity"
-            android:exported="true">
+            android:name=".pertemuan6.SplashScreenActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".pertemuan6.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan6.AuthActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_5.WebViewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_5.FifthActivity"
+            android:exported="false" />
 
     </application>
 </manifest>
