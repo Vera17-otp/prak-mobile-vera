@@ -6,7 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.percobaanp1.R
-import com.example.percobaanp1.MainActivity // Pastikan import benar
+import com.example.percobaanp1.pertemuan6.MainActivity
+import com.example.percobaanp1.pertemuan6.AuthActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -34,7 +35,7 @@ class SplashScreenActivity : AppCompatActivity() {
             }
 
             // 4. Pindah ke activity tujuan
-            val intent = Intent(this@SplashScreenActivity, targetActivity)
+            val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
             startActivity(intent)
 
             // 5. Tutup Splash Screen

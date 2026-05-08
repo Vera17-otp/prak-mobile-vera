@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.percobaanp1.R
-import com.example.percobaanp1.MainActivity // Pastikan import MainActivity benar
 
 class AuthActivity : AppCompatActivity() {
 

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.percobaanp1.databinding.ActivityMainBinding
-import com.example.percobaanp1.pertemuan4.FourthActivity
+import com.example.percobaanp1.Home.pertemuan4.FourthActivity
 
 class MainActivity : AppCompatActivity() {
 
