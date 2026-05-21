@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.example.percobaanp1.Home.pertemuan_7.SeventhActivity
-import com.example.percobaanp1.R
 import com.example.percobaanp1.databinding.FragmentHomeBinding
 import com.example.percobaanp1.pertemuan6.AuthActivity
 
@@ -17,43 +16,42 @@ import com.example.percobaanp1.pertemuan6.AuthActivity
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         binding.btnp7.setOnClickListener {
-            val intent = Intent(enterTransition, SeventhActivity::class.java)
-            // Flags ini memastikan user tidak bisa memencet tombol 'Back' kembali ke MainActivity
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
         }
 
         binding.btnLogout.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
+            val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Konfirmasi Logout")
             builder.setMessage("Apakah Anda yakin ingin keluar?")
 
             builder.setPositiveButton("Ya") { _, _ ->
-                // 1. Update SharedPreferences: ubah isLogin menjadi false
-                val sharedPref = getSharedPreferences("SlebewPrefs", Context.MODE_PRIVATE)
+                // 1. Update SharedPreferences
+                val sharedPref = requireContext().getSharedPreferences("SlebewPrefs", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", false)
                 editor.apply()
 
                 // 2. Arahkan kembali ke AuthActivity
-                val intent = Intent(this, AuthActivity::class.java)
-                // Flags ini memastikan user tidak bisa memencet tombol 'Back' kembali ke MainActivity
+                val intent = Intent(requireContext(), AuthActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
 
                 // 3. Tutup MainActivity
-                finish()
+                requireActivity().finish()
             }
 
             builder.setNegativeButton("Tidak") { dialog, _ ->
@@ -64,5 +62,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
