@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.example.percobaanp1.Home.pertemuan_7.SeventhActivity
+import com.example.percobaanp1.Home.pertemuan9.NinthActivity
 import com.example.percobaanp1.databinding.FragmentHomeBinding
 import com.example.percobaanp1.pertemuan6.AuthActivity
-
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -28,29 +28,34 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Navigasi ke Pertemuan 7
         binding.btnp7.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
         }
 
+        // Navigasi ke Pertemuan 9 (Sekarang aman karena ID btnp9 sudah ada di XML)
+        binding.btnp9.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Tombol Logout
         binding.btnLogout.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Konfirmasi Logout")
             builder.setMessage("Apakah Anda yakin ingin keluar?")
 
             builder.setPositiveButton("Ya") { _, _ ->
-                // 1. Update SharedPreferences
                 val sharedPref = requireContext().getSharedPreferences("SlebewPrefs", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", false)
                 editor.apply()
 
-                // 2. Arahkan kembali ke AuthActivity
                 val intent = Intent(requireContext(), AuthActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
 
-                // 3. Tutup MainActivity
                 requireActivity().finish()
             }
 
